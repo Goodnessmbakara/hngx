@@ -1,12 +1,13 @@
-from django.http import JsonResponse
-from django.views import View
+from rest_framework.views import APIView
+from rest_framework.response import Response
 from django.utils import timezone
 import datetime
 
+import pytz
 
 # Create your views here.
 
-class InformationView(View):
+class InformationView(APIView):
     def get(self, request):
         slack_name = request.GET.get('slack_name', '')
         track = request.GET.get('track', '')
@@ -15,7 +16,7 @@ class InformationView(View):
         github_file_url = 'https://github.com/Goodnessmbakara/hngx/blob/taskOne/get_endpoints/views.py'
         github_repo_url = 'https://github.com/Goodnessmbakara/hngx'
 
-        return JsonResponse({
+        return Response({
             'slack_name': slack_name,
             'current_day': current_day,
             'utc_time': utc_time,
