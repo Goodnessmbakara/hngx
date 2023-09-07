@@ -12,7 +12,7 @@ class InformationView(APIView):
         slack_name = request.GET.get('slack_name', '')
         track = request.GET.get('track', '')
         current_day = datetime.datetime.now().strftime('%A')
-        utc_time = timezone.now().isoformat()
+        utc_time = datetime.datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
         github_file_url = 'https://github.com/Goodnessmbakara/hngx/blob/taskOne/get_endpoints/views.py'
         github_repo_url = 'https://github.com/Goodnessmbakara/hngx'
 
