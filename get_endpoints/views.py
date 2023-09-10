@@ -23,4 +23,6 @@ class InformationView(APIView):
             'track': track,
             'github_file_url': github_file_url,
             'github_repo_url': github_repo_url,
-            'status_code': 200,})    
+            'status_code': 200,})
+
+class PersonView(
