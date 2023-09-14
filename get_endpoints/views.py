@@ -5,6 +5,12 @@ import datetime
 
 import pytz
 
+
+from rest_framework import generics
+from .models import Person
+from .serializers import PersonSerializer
+
+
 # Create your views here.
 
 class InformationView(APIView):
@@ -25,4 +31,10 @@ class InformationView(APIView):
             'github_repo_url': github_repo_url,
             'status_code': 200,})
 
-class PersonView(
+class PersonListCreateView(generics.ListCreateAPIView):
+    queryset = Person.objects.all()
+    serializer_class = PersonSerializer
+
+class PersonDetailView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Person.objects.all()
+    serializer_class = PersonSerializer
