@@ -1,5 +1,3 @@
 .hng
 .env
-migrations
 pycache
-get_endpoints/migrations
